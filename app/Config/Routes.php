@@ -35,7 +35,22 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// default routes => controller: home, method: index
+$routes->get('/', 'Coba::about'); // '/'=req get dari URL, 'Home'=controller, 'index'=method
+
+// jika request URL nya "pages", akan mengembalikan controller: Pages, method: index
+$routes->get('pages', 'Pages::index');
+
+// jika request URL nya "coba", akan mengembalikan controller: Coba, method: index
+$routes->get('/coba', 'Coba::index');
+
+$routes->get('(:any)', 'Coba::about/$1'); //digunakan untuk return method
+
+// jika request URL nya "coba"/"pages" atau bukan class controller, selama masih merupakan method dari comtroller, maka itu kan ditampilkan
+$routes->get('(:any)', 'Pages::view/$1');
+
+
 
 /*
  * --------------------------------------------------------------------
