@@ -11,6 +11,6 @@ class Coba extends BaseController
 
     public function about()
     {
-        return view('about');
+        return view('pages/about');
     }
 }

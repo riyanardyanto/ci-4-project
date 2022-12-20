@@ -37,18 +37,18 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // default routes => controller: home, method: index
-$routes->get('/', 'Coba::about'); // '/'=req get dari URL, 'Home'=controller, 'index'=method
+$routes->get('/', 'Home::index'); // '/'=req get dari URL, 'Home'=controller, 'index'=method
 
-// jika request URL nya "pages", akan mengembalikan controller: Pages, method: index
-$routes->get('pages', 'Pages::index');
+$routes->get('pages', 'Pages::index'); // jika request URL nya "pages", akan diarahkan ke controller: Pages, method: index
 
-// jika request URL nya "coba", akan mengembalikan controller: Coba, method: index
-$routes->get('/coba', 'Coba::index');
+$routes->get('/coba', 'Coba::index'); // jika request URL nya "coba", akan mengembalikan controller: Coba, method: index
 
-$routes->get('(:any)', 'Coba::about/$1'); //digunakan untuk return method
+// $routes->get('(:any)', 'Coba::about/$1'); //digunakan untuk return method
 
 // jika request URL nya "coba"/"pages" atau bukan class controller, selama masih merupakan method dari comtroller, maka itu kan ditampilkan
-$routes->get('(:any)', 'Pages::view/$1');
+// $routes->get('(:any)', 'Pages::view/$1');
+
+$routes->get('about', 'Pages::about');
 
 
 
